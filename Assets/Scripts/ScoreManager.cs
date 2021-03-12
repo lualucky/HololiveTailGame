@@ -10,6 +10,8 @@ public class ScoreManager : MonoBehaviour
 
     public GameObject ChungusManager;
 
+    public int HighScore;
+
     public delegate void ScoreIncrease();
     public static ScoreIncrease scoreIncreaseDelegate;
 
@@ -39,5 +41,22 @@ public class ScoreManager : MonoBehaviour
         chungus.GetComponent<ChungusManager>().Trigger(s/100*3);
         Score += s;
         scoreIncreaseDelegate();
+    }
+
+    public bool GameEnd()
+    {
+        bool result = false;
+        if(Score > HighScore)
+        {
+            result = true;
+        }
+
+        Score = Mathf.Max(Score, HighScore);
+        return result;
+    }
+
+    public int GetHighScore()
+    {
+        return HighScore;
     }
 }

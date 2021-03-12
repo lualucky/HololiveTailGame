@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class HitDetection : MonoBehaviour
 {
+    public bool Last;
     public int Value;
+
+    private HitManager manager;
+
+    private void Start()
+    {
+        manager = transform.parent.GetComponent<HitManager>();
+    }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger Enter!!!");
-        ScoreManager.Instance.AddScore(Value);
+        manager.RecieveHit(Value, Last);
     }
 }
