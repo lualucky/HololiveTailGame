@@ -18,4 +18,8 @@ public class UIManager : MonoBehaviour
     {
         Score.text = "" + ScoreManager.Instance.Score;
     }
+    public void OnDestroy()
+    {
+        ScoreManager.scoreIncreaseDelegate -= ScoreChange;
+    }
 }

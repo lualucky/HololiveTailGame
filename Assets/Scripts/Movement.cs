@@ -20,6 +20,9 @@ public class Movement : MonoBehaviour
     private bool loaded;
     private float charge;
 
+    private Tail manager;
+    private SpriteRenderer sprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,8 @@ public class Movement : MonoBehaviour
         loaded = true;
         charge = -1f;
         ChargeBar.fillAmount = 0;
+        manager = Tail.GetComponent<Tail>();
+        sprite = Tail.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -56,8 +61,8 @@ public class Movement : MonoBehaviour
         }
 
         // -- respawn
-        if (Tail.transform.position.y < -1)
-            Reload();
+        if (sprite.enabled && Tail.transform.position.y < -1)
+            manager.Reset();
     }
 
     void Fire()
