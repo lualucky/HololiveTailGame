@@ -25,7 +25,7 @@ public class YagooGenerator : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         timer += Time.deltaTime;
         if (timer >= spawnTime)

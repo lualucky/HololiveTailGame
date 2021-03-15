@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    private static ScoreManager instance = null;
+    private static ScoreManager instance;
 
     public int Score;
 
@@ -30,17 +30,20 @@ public class ScoreManager : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
-        instance = this;
-        DontDestroyOnLoad(this.gameObject);
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
     }
 
     public void AddScore(int s)
     {
+        Score += s;
+        Debug.Log("Score: " + Score);
+        scoreIncreaseDelegate();
         GameObject chungus = Instantiate(ChungusManager);
         chungus.GetComponent<ChungusManager>().Trigger(s/100*3);
-        Score += s;
-        scoreIncreaseDelegate();
     }
 
     public bool GameEnd()
@@ -51,7 +54,7 @@ public class ScoreManager : MonoBehaviour
             result = true;
         }
 
-        Score = Mathf.Max(Score, HighScore);
+        HighScore = Mathf.Max(Score, HighScore);
         return result;
     }
 

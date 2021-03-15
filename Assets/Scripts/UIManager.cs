@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         ScoreManager.scoreIncreaseDelegate += ScoreChange;
-        Score.text = "0";
+        Score.text = "" + ScoreManager.Instance.Score;
     }
 
     public void ScoreChange()
