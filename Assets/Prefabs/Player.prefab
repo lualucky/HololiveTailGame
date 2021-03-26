@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UpSprite: {fileID: 21300000, guid: fe9a787b4315ac649b4ab6e54663b070, type: 3}
-  TopSprite: {fileID: 21300000, guid: 11b00752a5448c141876305295fde78d, type: 3}
-  DownSprite: {fileID: 21300000, guid: 6a2257c32299c5f44bd46ab5979657d0, type: 3}
+  TopSprite: {fileID: 21300000, guid: 243769627d0d6b04d8aeb46f539e6a71, type: 3}
+  DownSprite: {fileID: 21300000, guid: db660a7529aa9164ab21c9cf18981b8c, type: 3}
   player: {fileID: 1221848397845854770}
 --- !u!95 &1221848397241086516
 Animator:

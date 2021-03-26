@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tail : MonoBehaviour
 {
     public Sprite UpSprite;
+    public Sprite MidSprite;
     public Sprite TopSprite;
     public Sprite DownSprite;
 
@@ -28,7 +29,9 @@ public class Tail : MonoBehaviour
         if (!rigid.isKinematic)
         {
             float vel = rigid.velocity.y;
-            if (vel < .1f && sprite.sprite == UpSprite)
+            if (vel < .2f && sprite.sprite == UpSprite)
+                sprite.sprite = MidSprite;
+            if (vel < .1f && sprite.sprite == MidSprite)
                 sprite.sprite = TopSprite;
             if (vel < 0 && sprite.sprite == TopSprite)
                 sprite.sprite = DownSprite;
